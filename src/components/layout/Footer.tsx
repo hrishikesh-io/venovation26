@@ -22,13 +22,13 @@ export const Footer: React.FC = () => {
                   <span className="text-brand-400">26.</span>
                 </div>
                 <span className="text-[10px] tracking-widest font-mono text-slate-400 uppercase">
-                  Innovation Beyond Limits
+                  SPARK · Innovation Beyond Limits
                 </span>
               </div>
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              VENOVATION 26 is a premier college technology and innovation festival uniting creators, developers, engineers, and innovators across Automobile, Civil, Computer Science, and Electronics.
+              VENOVATION 26 is the annual tech fest of <strong className="text-slate-300">Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</strong>, Vennikulam — uniting creators, engineers, and innovators across CS, Auto, Civil, and ECE.
             </p>
 
             <div className="pt-2 flex items-center gap-3">
@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-400">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
-                <span>Main Campus Auditorium Block, Technology Highway, Bengaluru - 560064</span>
+                <span>Vennikulam Poly, CM37+4JG, Eraviperoor - Vennikulam Rd,<br/>Vennikulam, Pathanamthitta, Kerala – 689 544</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 text-brand-400 shrink-0" />

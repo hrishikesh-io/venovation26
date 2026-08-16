@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Calendar, MapPin, Terminal, Zap, Shield, Trophy } from 'lucide-react';
+import { ArrowRight, Sparkles, Calendar, MapPin, Terminal, Zap, Shield, Trophy, Flame } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export const HeroSection: React.FC = () => {
@@ -20,11 +20,46 @@ export const HeroSection: React.FC = () => {
               <span>ANNUAL NATIONAL TECH FEST &bull; MARCH 2026</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-display text-5xl sm:text-7xl xl:text-8xl font-black tracking-tight text-slate-950 leading-[0.95]">
-              VENOVATION
-              <span className="block text-brand-500 mt-1">26.</span>
-            </h1>
+            {/* Main Headline with Fest Day & SPARK */}
+            <div className="space-y-2">
+              {/* College name – subtle above headline */}
+              <p className="text-xs sm:text-sm font-mono text-slate-500 tracking-wide uppercase">
+                Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College
+              </p>
+
+              {/* VENOVATION 26 + right-side badges */}
+              <div className="flex flex-wrap items-end gap-4">
+                <h1 className="font-display text-5xl sm:text-7xl xl:text-8xl font-black tracking-tight text-slate-950 leading-[0.95]">
+                  VENOVATION
+                  <span className="block text-brand-500 mt-1">26.</span>
+                </h1>
+
+                {/* Right-side vertical stack: Fest Day + SPARK */}
+                <div className="flex flex-col gap-2 pb-1 mb-1">
+                  {/* Fest Day badge */}
+                  <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 shadow-lg text-white">
+                    <Calendar className="h-4 w-4 text-brand-400 shrink-0" />
+                    <div className="flex flex-col leading-tight">
+                      <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Fest Day</span>
+                      <span className="text-sm font-display font-black text-white">Mar 24 · 25</span>
+                      <span className="text-[9px] font-mono text-brand-400">2026</span>
+                    </div>
+                  </div>
+
+                  {/* SPARK badge */}
+                  <div className="relative flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 border border-amber-400/40 shadow-lg shadow-amber-500/30 text-white overflow-hidden">
+                    {/* Glow shimmer */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2.5s_ease_infinite] pointer-events-none" />
+                    <Flame className="h-4 w-4 text-white shrink-0 animate-pulse" />
+                    <div className="flex flex-col leading-tight">
+                      <span className="text-[9px] font-mono text-amber-100/70 uppercase tracking-widest">Theme</span>
+                      <span className="text-sm font-display font-black text-white">SPARK</span>
+                      <span className="text-[9px] font-mono text-amber-100/60">Ignite · Create</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Subtitle */}
             <p className="text-xl sm:text-2xl font-display font-semibold text-slate-800 tracking-tight">
@@ -44,7 +79,7 @@ export const HeroSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 border border-slate-200 shadow-sm">
                 <MapPin className="h-4 w-4 text-brand-500" />
-                <span>Central Tech Campus, Bengaluru</span>
+                <span>Vennikulam, Pathanamthitta, Kerala</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 border border-slate-200 shadow-sm">
                 <Trophy className="h-4 w-4 text-amber-500" />
@@ -104,13 +139,17 @@ export const HeroSection: React.FC = () => {
 
                 {/* Futuristic card core */}
                 <div className="space-y-4 relative z-10">
-                  <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/80">
-                    <div className="flex items-center justify-between text-xs text-slate-400 font-mono mb-2">
-                      <span>THEME // TAGLINE</span>
-                      <Zap className="h-4 w-4 text-brand-400" />
+                  {/* SPARK theme highlight */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-950/60 to-orange-950/40 border border-amber-800/40">
+                    <div className="flex items-center justify-between text-xs text-amber-500 font-mono mb-2">
+                      <span>THEME // SPARK 2026</span>
+                      <Flame className="h-4 w-4 text-amber-400 animate-pulse" />
                     </div>
                     <div className="text-xl sm:text-2xl font-display font-black tracking-wide text-white uppercase">
                       INNOVATION BEYOND LIMITS
+                    </div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="text-[10px] font-mono text-amber-400/70">Ignite · Create · Innovate</span>
                     </div>
                   </div>
 
@@ -125,6 +164,18 @@ export const HeroSection: React.FC = () => {
                       <div className="text-2xl font-display font-extrabold text-emerald-400 mt-1">National</div>
                       <div className="text-[10px] text-slate-500 mt-0.5">Verified Digital Badges</div>
                     </div>
+                  </div>
+
+                  {/* Fest Day info */}
+                  <div className="p-3.5 rounded-xl bg-brand-950/50 border border-brand-900/60">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-[10px] font-mono text-brand-500/70 uppercase tracking-wider">Fest Days</div>
+                        <div className="text-lg font-display font-extrabold text-brand-400">24 &amp; 25 March 2026</div>
+                      </div>
+                      <Calendar className="h-8 w-8 text-brand-600/50" />
+                    </div>
+                    <div className="text-[10px] text-slate-500 mt-1 font-mono">Vennikulam, Pathanamthitta, Kerala</div>
                   </div>
 
                   {/* Terminal code snippet preview */}

@@ -131,10 +131,6 @@ export const HeroSection: React.FC = () => {
                     <div className="h-3 w-3 rounded-full bg-emerald-500/80" />
                     <span className="ml-2 font-mono text-xs text-slate-400">venovation-v26.sys</span>
                   </div>
-                  <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 font-mono text-[10px]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    PORTAL ACTIVE
-                  </span>
                 </div>
 
                 {/* Futuristic card core */}

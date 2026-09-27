@@ -21,40 +21,40 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Headline with Fest Day & SPARK */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               {/* College name – subtle above headline */}
-              <p className="text-xs sm:text-sm font-mono text-slate-500 tracking-wide uppercase">
-                Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College
-              </p>
+              <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+                <p className="text-xs sm:text-sm font-mono text-slate-500 tracking-wide uppercase">
+                  Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College
+                </p>
+              </div>
 
-              {/* VENOVATION 26 + right-side badges */}
-              <div className="flex flex-wrap items-end gap-4">
-                <h1 className="font-display text-5xl sm:text-7xl xl:text-8xl font-black tracking-tight text-slate-950 leading-[0.95]">
-                  VENOVATION
-                  <span className="block text-brand-500 mt-1">26.</span>
+              {/* VENOVATION 26 in one straight line + badges */}
+              <div className="flex flex-col xl:flex-row xl:items-center gap-3 sm:gap-4 pt-1">
+                <h1 className="font-display text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-black tracking-tight text-slate-950 leading-none inline-flex items-baseline flex-wrap gap-x-3 sm:gap-x-4">
+                  <span>VENOVATION</span>
+                  <span className="text-brand-500">26.</span>
                 </h1>
 
-                {/* Right-side vertical stack: Fest Day + SPARK */}
-                <div className="flex flex-col gap-2 pb-1 mb-1">
+                {/* Right-side badges */}
+                <div className="flex items-center gap-2.5 flex-wrap">
                   {/* Fest Day badge */}
-                  <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 shadow-lg text-white">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 shadow-md text-white">
                     <Calendar className="h-4 w-4 text-brand-400 shrink-0" />
                     <div className="flex flex-col leading-tight">
-                      <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Fest Day</span>
-                      <span className="text-sm font-display font-black text-white">Mar 24 · 25</span>
-                      <span className="text-[9px] font-mono text-brand-400">2026</span>
+                      <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Fest Days</span>
+                      <span className="text-xs sm:text-sm font-display font-bold text-white whitespace-nowrap">Mar 24 · 25, 2026</span>
                     </div>
                   </div>
 
                   {/* SPARK badge */}
-                  <div className="relative flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 border border-amber-400/40 shadow-lg shadow-amber-500/30 text-white overflow-hidden">
-                    {/* Glow shimmer */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_2.5s_ease_infinite] pointer-events-none" />
+                  <div className="relative flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 border border-amber-400/40 shadow-md text-white overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full animate-[shimmer_2.5s_ease_infinite] pointer-events-none" />
                     <Flame className="h-4 w-4 text-white shrink-0 animate-pulse" />
                     <div className="flex flex-col leading-tight">
-                      <span className="text-[9px] font-mono text-amber-100/70 uppercase tracking-widest">Theme</span>
-                      <span className="text-sm font-display font-black text-white">SPARK</span>
-                      <span className="text-[9px] font-mono text-amber-100/60">Ignite · Create</span>
+                      <span className="text-[9px] font-mono text-amber-100/80 uppercase tracking-widest">Theme</span>
+                      <span className="text-xs sm:text-sm font-display font-bold text-white whitespace-nowrap">SPARK '26</span>
                     </div>
                   </div>
                 </div>

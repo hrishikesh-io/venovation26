@@ -5,7 +5,6 @@ import { AboutSection } from '../components/home/AboutSection';
 import { DepartmentCards } from '../components/home/DepartmentCards';
 import { SchedulePreview } from '../components/home/SchedulePreview';
 import { VenuePreview } from '../components/home/VenuePreview';
-import { SlidingPuzzle } from '../components/home/SlidingPuzzle';
 import { CollegeLocation } from '../components/home/CollegeLocation';
 import { storageService } from '../lib/storage';
 import { Department } from '../types';
@@ -23,7 +22,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Section 1: Hero Section */}
+      {/* Section 1: Hero Section with Interactive SPARK Sliding Puzzle on the Right */}
       <HeroSection />
 
       {/* Section 2: Numbers & Impact */}
@@ -37,9 +36,6 @@ export const HomePage: React.FC = () => {
 
       {/* Section 6: 2-Day Timeline Schedule Preview */}
       <SchedulePreview />
-
-      {/* Section 7: SPARK Sliding Puzzle */}
-      <SlidingPuzzle />
 
       {/* Section 8: Transit & Logistics Preview */}
       <VenuePreview />

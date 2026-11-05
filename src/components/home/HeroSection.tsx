@@ -180,16 +180,22 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden bg-tech-grid bg-radial-glow">
       {/* Background glowing orbs */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        {/* ══════════════════════════════════════════════════════════════════
+            TWO CLEAN CONTAINERS: LEFT (HERO TEXT) & RIGHT (PUZZLE)
+            No overlapping, strict flex isolation, ample breathing room
+           ══════════════════════════════════════════════════════════════════ */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-10 xl:gap-14">
           
-          {/* ══════════════════════════════════════════════════════════════
-              LEFT SIDE: Hero Content (with Headline in ONE line)
-             ══════════════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          {/* ──────────────────────────────────────────────────────────────
+              CONTAINER 1 (LEFT): Hero Identity, Headline, Details & CTAs
+             ────────────────────────────────────────────────────────────── */}
+          <div className="flex-1 w-full max-w-2xl min-w-0 space-y-6 text-left">
+            
             {/* Top Badges Row */}
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 text-xs font-mono font-medium">
@@ -205,13 +211,13 @@ export const HeroSection: React.FC = () => {
 
             {/* Host College Name */}
             <div className="flex items-center gap-2 text-slate-500 font-mono text-xs sm:text-sm uppercase tracking-wider">
-              <div className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-              <span>Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</span>
+              <div className="h-1.5 w-1.5 rounded-full bg-brand-500 shrink-0" />
+              <span className="truncate">Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</span>
             </div>
 
-            {/* Main Headline in ONE SAME LINE + Badges */}
+            {/* Main Headline (Clean single-line font sizing to fit perfectly without overlap) */}
             <div className="space-y-3">
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-black tracking-tight text-slate-950 leading-none whitespace-nowrap">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-950 leading-none whitespace-nowrap">
                 VENOVATION <span className="text-brand-500">26.</span>
               </h1>
 
@@ -241,23 +247,23 @@ export const HeroSection: React.FC = () => {
               <p className="text-xl sm:text-2xl font-display font-bold text-slate-800 tracking-tight">
                 Innovation. Technology. Creativity.
               </p>
-              <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-sans max-w-xl">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
                 Experience a celebration of technology, creativity, and engineering excellence where students compete, collaborate, and innovate beyond limits across 4 specialized streams.
               </p>
             </div>
 
             {/* Meta Chips */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 pt-1">
+            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-medium text-slate-700 pt-1">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <MapPin className="h-4 w-4 text-brand-500" />
+                <MapPin className="h-4 w-4 text-brand-500 shrink-0" />
                 <span>Vennikulam, Pathanamthitta</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <Trophy className="h-4 w-4 text-amber-500" />
+                <Trophy className="h-4 w-4 text-amber-500 shrink-0" />
                 <span>₹1,50,000+ Prize Pool</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <Layers className="h-4 w-4 text-brand-500" />
+                <Layers className="h-4 w-4 text-brand-500 shrink-0" />
                 <span>4 Streams</span>
               </div>
             </div>
@@ -287,36 +293,37 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* ══════════════════════════════════════════════════════════════
-              RIGHT SIDE: Interactive 4×4 SPARK Sliding Puzzle Console
-             ══════════════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-sm lg:max-w-none">
+          {/* ──────────────────────────────────────────────────────────────
+              CONTAINER 2 (RIGHT): Interactive 4×4 SPARK Sliding Puzzle Console
+              Self-contained, fixed width, no overlap
+             ────────────────────────────────────────────────────────────── */}
+          <div className="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end">
+            <div className="w-full max-w-[350px] sm:max-w-[360px] lg:max-w-[370px]">
               
               {/* Futuristic Tech Console Frame */}
-              <div className="relative rounded-3xl bg-slate-950 p-5 sm:p-6 text-white shadow-2xl border border-slate-800 overflow-hidden group">
+              <div className="rounded-3xl bg-slate-950 p-5 text-white shadow-2xl border border-slate-800 relative overflow-hidden">
                 {/* Tech grid inside card */}
                 <div className="absolute inset-0 bg-tech-grid-dark opacity-35 pointer-events-none" />
                 
                 {/* Blue ambient glow */}
-                <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-500/25 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-44 h-44 bg-brand-500/25 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Confetti canvas for win celebration */}
                 <canvas
                   ref={canvasRef}
                   className="absolute inset-0 w-full h-full pointer-events-none z-30"
-                  width={400}
-                  height={450}
+                  width={370}
+                  height={420}
                   style={{ mixBlendMode: 'screen' }}
                 />
 
                 {/* Console Header Bar */}
-                <div className="relative z-10 flex items-center justify-between pb-3 mb-4 border-b border-slate-800/80">
+                <div className="relative z-10 flex items-center justify-between pb-3 mb-3.5 border-b border-slate-800/80">
                   <div className="flex items-center gap-2">
                     <div className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
                     <div className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
                     <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-                    <span className="ml-1.5 font-mono text-[11px] text-slate-400">spark-puzzle.sys</span>
+                    <span className="ml-1 font-mono text-[11px] text-slate-400">spark-puzzle.sys</span>
                   </div>
 
                   <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 text-[10px] font-mono">
@@ -332,10 +339,10 @@ export const HeroSection: React.FC = () => {
                   </div>
                 )}
 
-                {/* 4×4 Puzzle Grid Container */}
+                {/* 4×4 Puzzle Grid */}
                 <div className="relative z-10 flex flex-col items-center">
                   <div
-                    className="grid grid-cols-4 gap-1.5 p-2 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl w-full max-w-[320px]"
+                    className="grid grid-cols-4 gap-1.5 p-2 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-xl w-full"
                     role="grid"
                     aria-label="VENOVATION 26 spark sliding puzzle"
                   >
@@ -389,7 +396,7 @@ export const HeroSection: React.FC = () => {
                   </div>
 
                   {/* Puzzle Controls & Stats */}
-                  <div className="w-full max-w-[320px] mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <div className="w-full mt-3.5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
                     <div className="flex items-center gap-2">
                       <span className="text-slate-400 text-[11px]">Moves:</span>
                       <span className="text-base font-bold text-white tabular-nums">{moves}</span>
@@ -415,7 +422,7 @@ export const HeroSection: React.FC = () => {
                   </div>
 
                   {/* Solved Target Hint */}
-                  <div className="w-full max-w-[320px] mt-3 flex items-center justify-between text-[10px] font-mono text-slate-500">
+                  <div className="w-full mt-2.5 flex items-center justify-between text-[10px] font-mono text-slate-500">
                     <span className="flex items-center gap-1">
                       <span className="text-brand-400">⚡</span>
                       <span>Target: VENOVATION 26</span>

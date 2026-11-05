@@ -4,13 +4,11 @@ import {
   ArrowRight,
   Sparkles,
   Calendar,
-  MapPin,
-  Trophy,
   Flame,
-  Layers,
   Shuffle,
   RotateCcw,
   Zap,
+  GraduationCap,
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
@@ -178,62 +176,74 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden bg-tech-grid bg-radial-glow">
-      {/* Background glowing orbs */}
+    <section className="relative pt-32 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-tech-grid bg-radial-glow">
+      {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ══════════════════════════════════════════════════════════════════
-            TWO CLEAN CONTAINERS: LEFT (HERO TEXT) & RIGHT (PUZZLE)
-            No overlapping, strict flex isolation, ample breathing room
+            SECTION 1 SPLIT INTO TWO DEDICATED CONTAINERS (50/50 ON DESKTOP,
+            CLEAN STACKED ON MOBILE) — ZERO OVERLAP IN BOTH MODES
            ══════════════════════════════════════════════════════════════════ */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-10 xl:gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 items-stretch">
           
           {/* ──────────────────────────────────────────────────────────────
-              CONTAINER 1 (LEFT): Hero Identity, Headline, Details & CTAs
+              CONTAINER 1 (LEFT): ONLY TOPIC / BRAND IDENTITY
              ────────────────────────────────────────────────────────────── */}
-          <div className="flex-1 w-full max-w-2xl min-w-0 space-y-6 text-left">
+          <div className="rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-200/40 flex flex-col justify-between space-y-6 relative overflow-hidden">
             
-            {/* Top Badges Row */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 text-xs font-mono font-medium">
-                <Sparkles className="h-3.5 w-3.5 text-brand-500 animate-pulse" />
-                <span>ANNUAL NATIONAL TECH FEST &bull; MARCH 2026</span>
-              </div>
-
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono font-medium">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-                <span>GPTC VENNIKULAM</span>
-              </div>
-            </div>
-
-            {/* Host College Name */}
-            <div className="flex items-center gap-2 text-slate-500 font-mono text-xs sm:text-sm uppercase tracking-wider">
-              <div className="h-1.5 w-1.5 rounded-full bg-brand-500 shrink-0" />
-              <span className="truncate">Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</span>
-            </div>
-
-            {/* Main Headline (Clean single-line font sizing to fit perfectly without overlap) */}
+            {/* Top Bar: College & Fest Pills */}
             <div className="space-y-3">
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-950 leading-none whitespace-nowrap">
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 text-xs font-mono font-medium">
+                  <Sparkles className="h-3.5 w-3.5 text-brand-500 animate-pulse" />
+                  <span>ANNUAL TECH FEST 2026</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono font-medium">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
+                  <span>GPTC VENNIKULAM</span>
+                </div>
+              </div>
+
+              {/* Host Institution Name */}
+              <div className="flex items-start gap-2 text-slate-500 font-mono text-xs sm:text-sm uppercase tracking-wider pt-1">
+                <GraduationCap className="h-4 w-4 text-brand-500 shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College
+                </span>
+              </div>
+            </div>
+
+            {/* Core Topic Heading: Guaranteed Single-Line on BOTH Phone & Desktop */}
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-slate-400 block">
+                MAIN TOPIC // INNOVATION SUMMIT
+              </span>
+
+              {/* Headline in ONE straight line with responsive clamp */}
+              <h1 className="font-display text-[clamp(1.75rem,4.4vw,3.75rem)] font-black tracking-tight text-slate-950 leading-none whitespace-nowrap overflow-visible">
                 VENOVATION <span className="text-brand-500">26.</span>
               </h1>
 
-              {/* Fest Day & SPARK Badges */}
-              <div className="flex items-center gap-2.5 flex-wrap pt-1">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 shadow-md text-white">
-                  <Calendar className="h-4 w-4 text-brand-400 shrink-0" />
+              {/* Tagline */}
+              <p className="text-lg sm:text-xl md:text-2xl font-display font-extrabold text-slate-800 tracking-tight uppercase pt-1">
+                INNOVATION BEYOND LIMITS.
+              </p>
+
+              {/* Topic Badges: Fest Days & Theme */}
+              <div className="flex items-center gap-2.5 flex-wrap pt-2">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 shadow-sm text-white">
+                  <Calendar className="h-3.5 w-3.5 text-brand-400 shrink-0" />
                   <div className="flex items-center gap-1.5 text-xs font-mono">
-                    <span className="text-slate-400 uppercase tracking-widest text-[9px]">FEST DAYS:</span>
+                    <span className="text-slate-400 uppercase tracking-widest text-[9px]">DATES:</span>
                     <span className="font-display font-bold text-white whitespace-nowrap">Mar 24 &bull; 25, 2026</span>
                   </div>
                 </div>
 
-                <div className="relative flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 border border-amber-400/40 shadow-md text-white overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full animate-[shimmer_2.5s_ease_infinite] pointer-events-none" />
-                  <Flame className="h-4 w-4 text-white shrink-0 animate-pulse" />
+                <div className="relative flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 border border-amber-400/40 shadow-sm text-white overflow-hidden">
+                  <Flame className="h-3.5 w-3.5 text-white shrink-0 animate-pulse" />
                   <div className="flex items-center gap-1.5 text-xs font-mono">
                     <span className="text-amber-100/80 uppercase tracking-widest text-[9px]">THEME:</span>
                     <span className="font-display font-bold text-white whitespace-nowrap">SPARK '26</span>
@@ -242,197 +252,168 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Subtitle & Description */}
-            <div className="space-y-2.5">
-              <p className="text-xl sm:text-2xl font-display font-bold text-slate-800 tracking-tight">
-                Innovation. Technology. Creativity.
-              </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
-                Experience a celebration of technology, creativity, and engineering excellence where students compete, collaborate, and innovate beyond limits across 4 specialized streams.
-              </p>
-            </div>
-
-            {/* Meta Chips */}
-            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-medium text-slate-700 pt-1">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <MapPin className="h-4 w-4 text-brand-500 shrink-0" />
-                <span>Vennikulam, Pathanamthitta</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <Trophy className="h-4 w-4 text-amber-500 shrink-0" />
-                <span>₹1,50,000+ Prize Pool</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 shadow-sm">
-                <Layers className="h-4 w-4 text-brand-500 shrink-0" />
-                <span>4 Streams</span>
-              </div>
-            </div>
-
-            {/* Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <Link to="/register">
+            {/* Bottom Actions */}
+            <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-3">
+              <Link to="/register" className="flex-1 sm:flex-none">
                 <Button
                   variant="primary"
                   size="lg"
-                  className="font-bold shadow-xl shadow-brand-500/30 group px-7"
+                  className="w-full sm:w-auto font-bold shadow-xl shadow-brand-500/25 group px-7"
                   rightIcon={<ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />}
                 >
                   Register Now
                 </Button>
               </Link>
 
-              <Link to="/programs">
+              <Link to="/programs" className="flex-1 sm:flex-none">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="font-semibold border-slate-300 hover:border-brand-400 px-7"
+                  className="w-full sm:w-auto font-semibold border-slate-300 hover:border-brand-400 px-7"
                 >
                   Explore Programs &darr;
                 </Button>
               </Link>
             </div>
+
+            {/* Corner Decorative Accent */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-500/10 to-transparent rounded-bl-full pointer-events-none" />
           </div>
 
           {/* ──────────────────────────────────────────────────────────────
-              CONTAINER 2 (RIGHT): Interactive 4×4 SPARK Sliding Puzzle Console
-              Self-contained, fixed width, no overlap
+              CONTAINER 2 (RIGHT): FULL INTERACTIVE PUZZLE CONSOLE
              ────────────────────────────────────────────────────────────── */}
-          <div className="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end">
-            <div className="w-full max-w-[350px] sm:max-w-[360px] lg:max-w-[370px]">
-              
-              {/* Futuristic Tech Console Frame */}
-              <div className="rounded-3xl bg-slate-950 p-5 text-white shadow-2xl border border-slate-800 relative overflow-hidden">
-                {/* Tech grid inside card */}
-                <div className="absolute inset-0 bg-tech-grid-dark opacity-35 pointer-events-none" />
-                
-                {/* Blue ambient glow */}
-                <div className="absolute -top-24 -right-24 w-44 h-44 bg-brand-500/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden flex flex-col justify-between">
+            {/* Tech grid texture */}
+            <div className="absolute inset-0 bg-tech-grid-dark opacity-35 pointer-events-none" />
+            
+            {/* Ambient blue top glow */}
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-500/25 rounded-full blur-3xl pointer-events-none" />
 
-                {/* Confetti canvas for win celebration */}
-                <canvas
-                  ref={canvasRef}
-                  className="absolute inset-0 w-full h-full pointer-events-none z-30"
-                  width={370}
-                  height={420}
-                  style={{ mixBlendMode: 'screen' }}
-                />
+            {/* Confetti canvas for win celebration */}
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full pointer-events-none z-30"
+              width={450}
+              height={500}
+              style={{ mixBlendMode: 'screen' }}
+            />
 
-                {/* Console Header Bar */}
-                <div className="relative z-10 flex items-center justify-between pb-3 mb-3.5 border-b border-slate-800/80">
-                  <div className="flex items-center gap-2">
-                    <div className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-                    <span className="ml-1 font-mono text-[11px] text-slate-400">spark-puzzle.sys</span>
-                  </div>
+            {/* Console Header Bar */}
+            <div className="relative z-10 flex items-center justify-between pb-3.5 mb-4 border-b border-slate-800/80">
+              <div className="flex items-center gap-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-rose-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-amber-500" />
+                <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                <span className="ml-1.5 font-mono text-xs text-slate-400">spark-puzzle.sys</span>
+              </div>
 
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 text-[10px] font-mono">
-                    <Zap className="h-3 w-3" />
-                    <span>4&times;4 SLIDER</span>
-                  </div>
-                </div>
-
-                {/* Win Alert Banner */}
-                {won && (
-                  <div className="relative z-20 mb-3 text-center py-2 px-3 rounded-xl border border-emerald-500/50 bg-emerald-950/80 text-emerald-300 font-display font-bold text-sm animate-bounce-subtle">
-                    🎉 Solved in {moves} moves!
-                  </div>
-                )}
-
-                {/* 4×4 Puzzle Grid */}
-                <div className="relative z-10 flex flex-col items-center">
-                  <div
-                    className="grid grid-cols-4 gap-1.5 p-2 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-xl w-full"
-                    role="grid"
-                    aria-label="VENOVATION 26 spark sliding puzzle"
-                  >
-                    {tiles.map((tileId, index) => {
-                      const isEmpty = tileId === TOTAL - 1;
-                      const label = TILE_LABELS[tileId];
-                      const isAccent = !isEmpty && label?.accent;
-                      const isEmptyRow = Math.floor(index / SIZE);
-                      const isEmptyCol = index % SIZE;
-                      const emptyIndex = tiles.indexOf(TOTAL - 1);
-                      const emptyRow = Math.floor(emptyIndex / SIZE);
-                      const emptyCol = emptyIndex % SIZE;
-                      const isMovable = !isEmpty && (
-                        (isEmptyRow === emptyRow && Math.abs(isEmptyCol - emptyCol) === 1) ||
-                        (isEmptyCol === emptyCol && Math.abs(isEmptyRow - emptyRow) === 1)
-                      );
-
-                      return (
-                        <button
-                          key={`pos-${index}`}
-                          id={`hero-tile-${index}`}
-                          onClick={() => handleTileClick(index)}
-                          disabled={isEmpty || won}
-                          aria-label={isEmpty ? 'Empty tile' : `Tile ${label?.char}`}
-                          className={[
-                            'relative aspect-square rounded-xl text-center font-display font-black text-lg select-none transition-all duration-150',
-                            isEmpty
-                              ? 'bg-slate-950 border border-dashed border-slate-800 cursor-default'
-                              : isAccent
-                                ? 'bg-gradient-to-br from-brand-600 to-cyan-500 text-white border border-brand-400/40 shadow-md shadow-brand-500/20'
-                                : 'bg-slate-800/90 text-white border border-slate-700/80 hover:border-slate-500',
-                            isMovable && !won
-                              ? 'cursor-pointer hover:scale-105 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/30 active:scale-95'
-                              : !isEmpty ? 'opacity-85' : '',
-                            won && !isEmpty && !prefersReducedMotion ? 'animate-pulse-win' : '',
-                          ].join(' ')}
-                        >
-                          {!isEmpty && (
-                            <>
-                              <span className="flex items-center justify-center h-full w-full">
-                                {label?.char}
-                              </span>
-                              <span className="absolute bottom-0.5 right-1 text-[7px] font-mono opacity-30 font-normal">
-                                {tileId + 1}
-                              </span>
-                            </>
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Puzzle Controls & Stats */}
-                  <div className="w-full mt-3.5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
-                    <div className="flex items-center gap-2">
-                      <span className="text-slate-400 text-[11px]">Moves:</span>
-                      <span className="text-base font-bold text-white tabular-nums">{moves}</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={handleShuffle}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-[11px] font-semibold transition active:scale-95 shadow-md shadow-brand-500/20"
-                      >
-                        <Shuffle className="h-3 w-3" />
-                        <span>Shuffle</span>
-                      </button>
-
-                      <button
-                        onClick={handleReset}
-                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-semibold border border-slate-700 transition active:scale-95"
-                        title="Reset to solved order"
-                      >
-                        <RotateCcw className="h-3 w-3" />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Solved Target Hint */}
-                  <div className="w-full mt-2.5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <span className="text-brand-400">⚡</span>
-                      <span>Target: VENOVATION 26</span>
-                    </span>
-                    <span className="text-slate-600">Click tile next to space</span>
-                  </div>
-                </div>
-
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 text-xs font-mono font-medium">
+                <Zap className="h-3.5 w-3.5" />
+                <span>FULL 4&times;4 PUZZLE</span>
               </div>
             </div>
+
+            {/* Win Alert Banner */}
+            {won && (
+              <div className="relative z-20 mb-3 text-center py-2.5 px-3 rounded-xl border border-emerald-500/50 bg-emerald-950/90 text-emerald-300 font-display font-bold text-sm sm:text-base animate-bounce-subtle">
+                🎉 Puzzle Solved in {moves} moves!
+              </div>
+            )}
+
+            {/* 4×4 Puzzle Grid Container (Centered and Touch-friendly) */}
+            <div className="relative z-10 flex-1 flex flex-col items-center justify-center my-2">
+              <div
+                className="grid grid-cols-4 gap-2 sm:gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-2xl w-full max-w-[320px] sm:max-w-[340px]"
+                role="grid"
+                aria-label="VENOVATION 26 spark sliding puzzle"
+              >
+                {tiles.map((tileId, index) => {
+                  const isEmpty = tileId === TOTAL - 1;
+                  const label = TILE_LABELS[tileId];
+                  const isAccent = !isEmpty && label?.accent;
+                  const isEmptyRow = Math.floor(index / SIZE);
+                  const isEmptyCol = index % SIZE;
+                  const emptyIndex = tiles.indexOf(TOTAL - 1);
+                  const emptyRow = Math.floor(emptyIndex / SIZE);
+                  const emptyCol = emptyIndex % SIZE;
+                  const isMovable = !isEmpty && (
+                    (isEmptyRow === emptyRow && Math.abs(isEmptyCol - emptyCol) === 1) ||
+                    (isEmptyCol === emptyCol && Math.abs(isEmptyRow - emptyRow) === 1)
+                  );
+
+                  return (
+                    <button
+                      key={`pos-${index}`}
+                      id={`hero-tile-${index}`}
+                      onClick={() => handleTileClick(index)}
+                      disabled={isEmpty || won}
+                      aria-label={isEmpty ? 'Empty tile' : `Tile ${label?.char}`}
+                      className={[
+                        'relative aspect-square rounded-xl text-center font-display font-black text-lg sm:text-xl select-none transition-all duration-150',
+                        isEmpty
+                          ? 'bg-slate-950 border border-dashed border-slate-800 cursor-default'
+                          : isAccent
+                            ? 'bg-gradient-to-br from-brand-600 to-cyan-500 text-white border border-brand-400/40 shadow-md shadow-brand-500/20'
+                            : 'bg-slate-800/90 text-white border border-slate-700/80 hover:border-slate-500',
+                        isMovable && !won
+                          ? 'cursor-pointer hover:scale-105 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/30 active:scale-95'
+                          : !isEmpty ? 'opacity-85' : '',
+                        won && !isEmpty && !prefersReducedMotion ? 'animate-pulse-win' : '',
+                      ].join(' ')}
+                    >
+                      {!isEmpty && (
+                        <>
+                          <span className="flex items-center justify-center h-full w-full">
+                            {label?.char}
+                          </span>
+                          <span className="absolute bottom-0.5 right-1 text-[7px] font-mono opacity-30 font-normal">
+                            {tileId + 1}
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Puzzle Controls & Status Bar */}
+            <div className="relative z-10 w-full pt-4 mt-2 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 text-xs">Moves:</span>
+                <span className="text-lg font-bold text-white tabular-nums">{moves}</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleShuffle}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-xs font-semibold transition active:scale-95 shadow-md shadow-brand-500/20"
+                >
+                  <Shuffle className="h-3.5 w-3.5" />
+                  <span>Shuffle</span>
+                </button>
+
+                <button
+                  onClick={handleReset}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition active:scale-95"
+                  title="Reset to solved order"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                  <span>Reset</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Target Hint Bar */}
+            <div className="relative z-10 w-full mt-2.5 pt-2 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <span className="flex items-center gap-1 text-slate-400">
+                <span className="text-brand-400">⚡</span>
+                <span>Target: VENOVATION 26</span>
+              </span>
+              <span className="text-slate-500">Click tile next to space</span>
+            </div>
+
           </div>
 
         </div>

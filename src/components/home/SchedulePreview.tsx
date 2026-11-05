@@ -52,7 +52,7 @@ export const SchedulePreview: React.FC = () => {
               <span>EVENT RUNNING ORDER</span>
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight text-slate-950">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950">
               Two Days of Relentless Innovation.
             </h2>
 
@@ -77,26 +77,29 @@ export const SchedulePreview: React.FC = () => {
             {scheduleItems.map((item, idx) => (
               <div
                 key={idx}
-                className="group p-4 sm:p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:bg-white hover:border-brand-400 hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                className="group relative overflow-hidden rounded-2xl bg-[#F8FAFC] border border-slate-200/90 p-4 sm:p-5 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-transparent hover:shadow-xl hover:shadow-blue-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer"
               >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-                    <span className="text-brand-600 font-bold" dangerouslySetInnerHTML={{ __html: item.day }} />
+                {/* Same Unified Catchy Electric Blue Gradient Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+
+                <div className="relative z-10 space-y-1">
+                  <div className="flex items-center gap-2 text-xs font-mono text-slate-500 group-hover:text-white/80 transition-colors duration-300">
+                    <span className="text-brand-600 group-hover:text-white font-bold" dangerouslySetInnerHTML={{ __html: item.day }} />
                     <span>&bull;</span>
-                    <span className="text-slate-700 font-semibold">{item.dept}</span>
+                    <span className="text-slate-700 group-hover:text-white font-semibold">{item.dept}</span>
                   </div>
-                  <h4 className="font-display font-bold text-base text-slate-900 group-hover:text-brand-600 transition">
+                  <h4 className="font-display font-bold text-base text-slate-900 group-hover:text-white transition-colors duration-300">
                     {item.title}
                   </h4>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                    <MapPin className="h-3.5 w-3.5 text-slate-400" />
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 group-hover:text-white/80 transition-colors duration-300">
+                    <MapPin className="h-3.5 w-3.5 text-slate-400 group-hover:text-white/80" />
                     <span>{item.venue}</span>
                   </div>
                 </div>
 
-                <div className="sm:text-right shrink-0">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-mono font-bold text-slate-900 shadow-sm">
-                    <Clock className="h-3.5 w-3.5 text-brand-500" />
+                <div className="relative z-10 sm:text-right shrink-0">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white group-hover:bg-white/20 border border-slate-200 group-hover:border-white/30 text-xs font-mono font-bold text-slate-900 group-hover:text-white shadow-sm transition-all duration-300">
+                    <Clock className="h-3.5 w-3.5 text-brand-500 group-hover:text-white" />
                     <span>{item.time}</span>
                   </div>
                 </div>

@@ -27,15 +27,15 @@ export const HeroSection: React.FC = () => {
 
           {/* College Name & Full-Line Main Headline */}
           <div className="space-y-4">
-            {/* Host College Name */}
+            {/* Host College Name in ONE line */}
             <div className="flex items-center gap-2 text-slate-500 font-mono text-xs sm:text-sm uppercase tracking-wider">
               <div className="h-1.5 w-1.5 rounded-full bg-brand-500" />
               <span>Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</span>
             </div>
 
-            {/* Main Headline (Full Line) + Badges */}
+            {/* Main Headline (All in ONE SAME LINE) + Badges */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pt-1">
-              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tight text-slate-950 leading-[0.92] select-none">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-slate-950 leading-[0.92] select-none whitespace-nowrap">
                 VENOVATION <span className="text-brand-500">26.</span>
               </h1>
 
@@ -63,7 +63,7 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Subtitle & Description */}
+          {/* Subtitle & Description in ONE clean line/flow */}
           <div className="space-y-3 max-w-4xl">
             <p className="text-2xl sm:text-3xl font-display font-bold text-slate-800 tracking-tight">
               Innovation. Technology. Creativity.

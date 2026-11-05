@@ -8,32 +8,32 @@ export const AboutSection: React.FC = () => {
     {
       title: 'Technical Competitions',
       desc: 'Coding marathons, CAD challenges, circuit debugging, and live relays.',
-      icon: <Code2 className="h-5 w-5 text-brand-500" />,
+      icon: <Code2 className="h-5 w-5" />,
     },
     {
       title: 'Industry-Led Workshops',
       desc: 'Hands-on training sessions led by seasoned engineering architects.',
-      icon: <Wrench className="h-5 w-5 text-brand-500" />,
+      icon: <Wrench className="h-5 w-5" />,
     },
     {
       title: 'Hardware & Software Expo',
       desc: 'Showcase working prototypes, EV mobility models, and smart systems.',
-      icon: <Sparkles className="h-5 w-5 text-brand-500" />,
+      icon: <Sparkles className="h-5 w-5" />,
     },
     {
       title: '4 Engineering Streams',
       desc: 'Dedicated tracks for CS, Automobile, Civil, and Electronics.',
-      icon: <CheckCircle2 className="h-5 w-5 text-brand-500" />,
+      icon: <CheckCircle2 className="h-5 w-5" />,
     },
     {
       title: '500+ Student Network',
       desc: 'Connect, collaborate, and exchange ideas with peers across Kerala.',
-      icon: <Users className="h-5 w-5 text-brand-500" />,
+      icon: <Users className="h-5 w-5" />,
     },
     {
       title: '₹1.5L+ Cash Prizes & Badges',
       desc: 'Recognized trophies, cash prizes, and verified digital credentials.',
-      icon: <Trophy className="h-5 w-5 text-brand-500" />,
+      icon: <Trophy className="h-5 w-5" />,
     },
   ];
 
@@ -42,15 +42,15 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-10">
           {/* Section Header */}
-          <div className="space-y-4 max-w-4xl">
+          <div className="space-y-4 max-w-5xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/80 text-slate-700 text-xs font-mono font-medium">
               <Lightbulb className="h-3.5 w-3.5 text-brand-500" />
               <span>THE VISION BEHIND VENOVATION</span>
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.08]">
-              Ideas need room <br className="hidden sm:inline" />
-              <span className="text-brand-500">to grow.</span>
+            {/* Heading in ONE SAME LINE */}
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-tight">
+              Ideas need room <span className="text-brand-500">to grow.</span>
             </h2>
 
             <p className="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed">
@@ -58,22 +58,38 @@ export const AboutSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Highlight Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+          {/* Highlight Cards Grid — with the EXACT SAME cursor in/out color animation */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl bg-white border border-slate-200/90 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-300 hover:-translate-y-1"
+                className="group relative rounded-3xl bg-white border border-slate-200/90 p-7 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2.5 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 overflow-hidden cursor-pointer"
               >
-                <div className="h-10 w-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-brand-500 group-hover:text-white">
-                  {item.icon}
+                {/* Same Unified Catchy Electric Blue Gradient Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+
+                {/* Subtle tech grid on hover */}
+                <div className="absolute inset-0 bg-tech-grid opacity-0 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="h-12 w-12 rounded-2xl bg-brand-50 text-brand-600 border border-brand-100 flex items-center justify-center mb-5 transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 group-hover:rotate-6 group-hover:scale-110 shadow-sm">
+                    {item.icon}
+                  </div>
+
+                  <h3 className="font-display font-bold text-slate-950 text-lg sm:text-xl transition-colors duration-300 group-hover:text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-slate-600 text-sm mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white/85">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="font-display font-bold text-slate-900 text-lg group-hover:text-brand-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 text-sm mt-1.5 leading-relaxed">
-                  {item.desc}
-                </p>
+
+                {/* Corner accent */}
+                <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40 group-hover:opacity-90 transition-opacity duration-300">
+                  <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-brand-500 group-hover:border-white transition-colors duration-300"></div>
+                </div>
               </div>
             ))}
           </div>

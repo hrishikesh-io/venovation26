@@ -76,13 +76,16 @@ export const CollegeLocation: React.FC = () => {
               ].map(item => (
                 <div
                   key={item.label}
-                  className="rounded-xl bg-white border border-slate-200 p-3.5 shadow-sm"
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 p-3.5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:border-transparent hover:shadow-xl hover:shadow-blue-500/25 cursor-pointer"
                 >
-                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-1">
-                    {item.label}
-                  </div>
-                  <div className="text-sm font-display font-bold text-slate-900">
-                    {item.value}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="text-[10px] font-mono text-slate-400 group-hover:text-white/80 uppercase tracking-wider mb-1 transition-colors duration-300">
+                      {item.label}
+                    </div>
+                    <div className="text-sm font-display font-bold text-slate-900 group-hover:text-white transition-colors duration-300">
+                      {item.value}
+                    </div>
                   </div>
                 </div>
               ))}

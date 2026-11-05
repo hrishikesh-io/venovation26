@@ -24,22 +24,28 @@ export const VenuePreview: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                <div className="flex items-center gap-2 text-brand-400 font-mono text-xs font-semibold">
-                  <Train className="h-4 w-4" />
-                  <span>NEAREST RAILWAY</span>
+              <div className="group relative overflow-hidden rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-1.5 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 cursor-pointer">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 text-brand-400 group-hover:text-white font-mono text-xs font-semibold transition-colors duration-300">
+                    <Train className="h-4 w-4" />
+                    <span>NEAREST RAILWAY</span>
+                  </div>
+                  <p className="text-base font-bold text-white mt-1">City Central Junction</p>
+                  <p className="text-xs text-slate-400 group-hover:text-white/85 transition-colors duration-300 mt-0.5">8.2 km (Approx 20 mins via Metro / Cab)</p>
                 </div>
-                <p className="text-sm font-semibold text-white">City Central Junction</p>
-                <p className="text-xs text-slate-400">8.2 km (Approx 20 mins via Metro / Cab)</p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                <div className="flex items-center gap-2 text-brand-400 font-mono text-xs font-semibold">
-                  <Bus className="h-4 w-4" />
-                  <span>NEAREST BUS TERMINUS</span>
+              <div className="group relative overflow-hidden rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-1.5 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 cursor-pointer">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 text-brand-400 group-hover:text-white font-mono text-xs font-semibold transition-colors duration-300">
+                    <Bus className="h-4 w-4" />
+                    <span>NEAREST BUS TERMINUS</span>
+                  </div>
+                  <p className="text-base font-bold text-white mt-1">Tech Park Express Terminal</p>
+                  <p className="text-xs text-slate-400 group-hover:text-white/85 transition-colors duration-300 mt-0.5">1.5 km (Direct feeder buses every 10 mins)</p>
                 </div>
-                <p className="text-sm font-semibold text-white">Tech Park Express Terminal</p>
-                <p className="text-xs text-slate-400">1.5 km (Direct feeder buses every 10 mins)</p>
               </div>
             </div>
 

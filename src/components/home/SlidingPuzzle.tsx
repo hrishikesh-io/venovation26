@@ -203,9 +203,8 @@ export const SlidingPuzzle: React.FC = () => {
               <span>THE SPARK PUZZLE · VENOVATION 26</span>
             </div>
 
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">
-              Can You Solve
-              <span className="block text-brand-400 mt-1">The Spark?</span>
+            <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+              Can You Solve <span className="text-brand-400">The Spark?</span>
             </h2>
 
             <p className="text-slate-400 text-base leading-relaxed">

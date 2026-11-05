@@ -3,42 +3,48 @@ import { HeroSection } from '../components/home/HeroSection';
 import { StatsSection } from '../components/home/StatsSection';
 import { AboutSection } from '../components/home/AboutSection';
 import { DepartmentCards } from '../components/home/DepartmentCards';
-import { FeaturedPrograms } from '../components/home/FeaturedPrograms';
 import { SchedulePreview } from '../components/home/SchedulePreview';
 import { VenuePreview } from '../components/home/VenuePreview';
 import { SlidingPuzzle } from '../components/home/SlidingPuzzle';
 import { CollegeLocation } from '../components/home/CollegeLocation';
 import { storageService } from '../lib/storage';
-import { Department, Program } from '../types';
+import { Department } from '../types';
 
 export const HomePage: React.FC = () => {
   const [departments, setDepartments] = useState<Department[]>([]);
-  const [programs, setPrograms] = useState<Program[]>([]);
 
   useEffect(() => {
     async function loadData() {
-      const [depts, progs] = await Promise.all([
-        storageService.getDepartments(),
-        storageService.getPrograms(),
-      ]);
+      const depts = await storageService.getDepartments();
       setDepartments(depts);
-      setPrograms(progs);
     }
     loadData();
   }, []);
 
   return (
     <div className="min-h-screen">
+      {/* Section 1: Hero Section */}
       <HeroSection />
+
+      {/* Section 2: Numbers & Impact */}
       <StatsSection />
+
+      {/* Section 3: Vision & About */}
       <AboutSection />
+
+      {/* Section 4: 4 Department Cards */}
       <DepartmentCards departments={departments} />
-      <FeaturedPrograms programs={programs} />
+
+      {/* Section 6: 2-Day Timeline Schedule Preview */}
       <SchedulePreview />
-      {/* ── SPARK Sliding Puzzle ── */}
+
+      {/* Section 7: SPARK Sliding Puzzle */}
       <SlidingPuzzle />
+
+      {/* Section 8: Transit & Logistics Preview */}
       <VenuePreview />
-      {/* ── College Location (above footer) ── */}
+
+      {/* Section 9: College Location (above footer) */}
       <CollegeLocation />
     </div>
   );

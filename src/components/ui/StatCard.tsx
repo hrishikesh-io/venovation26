@@ -5,7 +5,8 @@ interface StatCardProps {
   label: string;
   sublabel?: string;
   icon?: React.ReactNode;
-  variant?: 'light' | 'dark' | 'electric';
+  gradient?: string;
+  shadowGlow?: string;
   className?: string;
 }
 
@@ -14,55 +15,54 @@ export const StatCard: React.FC<StatCardProps> = ({
   label,
   sublabel,
   icon,
-  variant = 'light',
+  gradient = 'from-[#0052FF] via-[#0042D0] to-[#0A2E8A]',
+  shadowGlow = 'hover:shadow-blue-500/30',
   className = '',
 }) => {
-  const variantStyles = {
-    light: 'bg-white border-slate-200/80 text-slate-900 shadow-sm hover:border-brand-300',
-    dark: 'bg-[#0F1626] border-slate-800 text-white shadow-xl hover:border-brand-500/40',
-    electric: 'bg-gradient-to-br from-brand-500 to-brand-700 border-brand-400 text-white shadow-lg shadow-brand-500/20',
-  };
-
-  const numberColors = {
-    light: 'text-slate-950 group-hover:text-brand-600',
-    dark: 'text-white group-hover:text-brand-400',
-    electric: 'text-white',
-  };
-
-  const labelColors = {
-    light: 'text-slate-600',
-    dark: 'text-slate-300',
-    electric: 'text-brand-100',
-  };
-
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl border p-6 sm:p-8 transition-all duration-300 ${variantStyles[variant]} ${className}`}
+      className={`group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl ${shadowGlow} ${className}`}
     >
-      <div className="flex items-start justify-between">
+      {/* Catchy Vibrant Gradient Overlay that reveals on cursor enter */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none`}
+      />
+
+      {/* Subtle tech grid on hover */}
+      <div className="absolute inset-0 bg-tech-grid opacity-0 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none" />
+
+      {/* Content Container (Layered above gradient) */}
+      <div className="relative z-10 flex items-start justify-between">
         <div>
-          <div className={`font-display text-4xl sm:text-5xl font-extrabold tracking-tight transition-colors duration-300 ${numberColors[variant]}`}>
+          {/* Big Number */}
+          <div className="font-display text-4xl sm:text-5xl font-black tracking-tight text-slate-950 transition-all duration-300 group-hover:text-white group-hover:scale-105 origin-left">
             {number}
           </div>
-          <div className={`mt-2 font-display text-base sm:text-lg font-semibold tracking-wide uppercase ${labelColors[variant]}`}>
+
+          {/* Label */}
+          <div className="mt-2 font-display text-base sm:text-lg font-bold tracking-wide uppercase text-slate-700 transition-colors duration-300 group-hover:text-white">
             {label}
           </div>
+
+          {/* Sublabel */}
           {sublabel && (
-            <p className="mt-1 text-xs text-slate-400 font-sans">
+            <p className="mt-1 text-xs text-slate-500 font-sans transition-colors duration-300 group-hover:text-white/80">
               {sublabel}
             </p>
           )}
         </div>
+
+        {/* Icon Container */}
         {icon && (
-          <div className={`rounded-xl p-3 ${variant === 'dark' ? 'bg-slate-800/80 text-brand-400' : variant === 'electric' ? 'bg-white/10 text-white' : 'bg-brand-50 text-brand-600'}`}>
+          <div className="rounded-2xl p-3 bg-slate-100 text-slate-700 border border-slate-200/60 shadow-sm transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 group-hover:rotate-6 group-hover:scale-110">
             {icon}
           </div>
         )}
       </div>
 
       {/* Futuristic corner accent */}
-      <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-brand-500"></div>
+      <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity duration-300">
+        <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-brand-500 group-hover:border-white transition-colors duration-300"></div>
       </div>
     </div>
   );

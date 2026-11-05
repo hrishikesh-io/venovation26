@@ -216,19 +216,19 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Core Topic Heading: Guaranteed Single-Line on BOTH Phone & Desktop */}
-            <div className="space-y-3 pt-2">
+            {/* Core Topic Heading: Controlled length & decreased size to fit comfortably */}
+            <div className="space-y-2.5 pt-2">
               <span className="text-[11px] font-mono uppercase tracking-widest text-slate-400 block">
                 MAIN TOPIC // INNOVATION SUMMIT
               </span>
 
-              {/* Headline in ONE straight line with responsive clamp */}
-              <h1 className="font-display text-[clamp(1.75rem,4.4vw,3.75rem)] font-black tracking-tight text-slate-950 leading-none whitespace-nowrap overflow-visible">
+              {/* Headline with decreased size & controlled length */}
+              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] font-black tracking-tight text-slate-950 leading-none whitespace-nowrap">
                 VENOVATION <span className="text-brand-500">26.</span>
               </h1>
 
               {/* Tagline */}
-              <p className="text-lg sm:text-xl md:text-2xl font-display font-extrabold text-slate-800 tracking-tight uppercase pt-1">
+              <p className="text-base sm:text-lg md:text-xl font-display font-extrabold text-slate-800 tracking-tight uppercase pt-0.5">
                 INNOVATION BEYOND LIMITS.
               </p>
 

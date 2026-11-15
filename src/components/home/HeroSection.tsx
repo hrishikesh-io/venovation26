@@ -169,7 +169,7 @@ export const HeroSection: React.FC = () => {
           {/* ============================================================== */}
           {/* CONTAINER 1 (LEFT): ONLY TOPIC / BRAND IDENTITY               */}
           {/* ============================================================== */}
-          <div className="rounded-3xl bg-[#0F1322]/95 backdrop-blur-xl border border-slate-800 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between space-y-6 relative overflow-hidden text-white">
+          <div className="rounded-3xl bg-[#0F1322]/95 backdrop-blur-xl border border-slate-800 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between gap-6 relative overflow-hidden text-white">
             
             {/* Top Bar: College & Fest Pills */}
             <div className="space-y-3">
@@ -185,7 +185,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Host Institution Name */}
-              <div className="flex items-start gap-2 text-slate-300 font-mono text-xs sm:text-sm uppercase tracking-wider pt-1">
+              <div className="flex items-start gap-2 text-slate-300 font-mono text-xs sm:text-sm uppercase tracking-wider">
                 <GraduationCap className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <span className="leading-snug">
                   Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College
@@ -193,19 +193,21 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Core Topic Heading: Controlled length & decreased size to fit comfortably */}
-            <div className="space-y-2.5 pt-2">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-semibold block">
-                MAIN TOPIC // INNOVATION SUMMIT
-              </span>
+            {/* Core Topic Heading Lockup - Perfectly Aligned */}
+            <div className="flex flex-col items-start gap-2.5 sm:gap-3 py-1">
+              {/* Line 1: Topic Tag */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/25 text-amber-400 text-xs font-mono font-semibold tracking-wider">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>MAIN TOPIC // INNOVATION SUMMIT</span>
+              </div>
 
-              {/* Headline with decreased size & single line */}
-              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] font-black tracking-tight text-white leading-none whitespace-nowrap">
+              {/* Line 2: Headline */}
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-[3rem] font-black tracking-tight text-white leading-tight">
                 VENOVATION <span className="text-amber-400">26.</span>
               </h1>
 
-              {/* Tagline */}
-              <p className="text-base sm:text-lg md:text-xl font-display font-extrabold text-slate-200 tracking-tight uppercase pt-0.5">
+              {/* Line 3: Tagline */}
+              <p className="font-display text-sm sm:text-base md:text-lg lg:text-xl font-extrabold text-slate-200 tracking-wider uppercase">
                 INNOVATION BEYOND LIMITS.
               </p>
 

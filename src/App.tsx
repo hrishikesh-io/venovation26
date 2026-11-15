@@ -8,8 +8,7 @@ import { AdminLayout } from './components/layout/AdminLayout';
 // Public Pages
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
-import { DepartmentsPage } from './pages/DepartmentsPage';
-import { ProgramsPage } from './pages/ProgramsPage';
+import { DepartmentsAndProgramsPage } from './pages/DepartmentsAndProgramsPage';
 import { ProgramDetailPage } from './pages/ProgramDetailPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { HowToReachPage } from './pages/HowToReachPage';
@@ -59,7 +58,7 @@ const ProtectedAdminRoute: React.FC<{ children: React.ReactNode }> = ({ children
 // Public Layout Wrapper with Navbar & Footer
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#08090E] text-white">
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />
@@ -90,11 +89,12 @@ export const App: React.FC = () => {
               </PublicLayout>
             }
           />
+          {/* Unified Departments & Programs Page */}
           <Route
             path="/departments"
             element={
               <PublicLayout>
-                <DepartmentsPage />
+                <DepartmentsAndProgramsPage />
               </PublicLayout>
             }
           />
@@ -102,7 +102,15 @@ export const App: React.FC = () => {
             path="/programs"
             element={
               <PublicLayout>
-                <ProgramsPage />
+                <DepartmentsAndProgramsPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <PublicLayout>
+                <DepartmentsAndProgramsPage />
               </PublicLayout>
             }
           />

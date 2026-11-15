@@ -9,8 +9,8 @@
   }
 
   body {
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #08090E;
+    color: #F8FAFC;
     font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
   }
@@ -21,46 +21,50 @@
   }
 }
 
-/* Futuristic Tech Grid Pattern */
+/* Futuristic Tech Grid Pattern - Red, Gold, Black, White, Blue Theme */
 .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(0, 82, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 82, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 82, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .bg-tech-grid-dark {
   background-image: 
-    linear-gradient(to right, rgba(0, 82, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 82, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 82, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 82, 255, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.18) 0%, rgba(245, 158, 11, 0.1) 25%, rgba(0, 82, 255, 0.1) 50%, rgba(8, 9, 14, 0) 75%);
 }
 
 .glow-box {
-  box-shadow: 0 0 25px -5px rgba(0, 82, 255, 0.15);
+  box-shadow: 0 0 25px -5px rgba(0, 82, 255, 0.25);
 }
 
 .glow-box-strong {
-  box-shadow: 0 0 40px -5px rgba(0, 82, 255, 0.35);
+  box-shadow: 0 0 40px -5px rgba(220, 38, 38, 0.35);
 }
 
-/* Glassmorphism Surface */
+.glow-box-gold {
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.35);
+}
+
+/* Glassmorphism Surface - Dark Theme */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(15, 19, 34, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-panel-dark {
-  background: rgba(15, 22, 38, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(30, 41, 59, 0.9);
+  background: rgba(10, 13, 22, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 41, 59, 0.8);
 }
 
 /* Custom Scrollbar */
@@ -70,12 +74,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #08090E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #1E293B;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -89,8 +94,8 @@
 
 .tech-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 30px -10px rgba(0, 82, 255, 0.12);
-  border-color: rgba(0, 82, 255, 0.4);
+  box-shadow: 0 20px 30px -10px rgba(0, 82, 255, 0.2);
+  border-color: rgba(0, 82, 255, 0.5);
 }
 
 /* Print Specific Styles for Digital Receipt Pass */
@@ -118,22 +123,22 @@
   }
 }
 
-/* ── Puzzle: Win pulse animation ── */
+/* Win pulse animation */
 @keyframes pulse-win {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-  50%       { transform: scale(1.06); box-shadow: 0 0 14px 4px rgba(16, 185, 129, 0.35); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+  50%       { transform: scale(1.06); box-shadow: 0 0 16px 4px rgba(245, 158, 11, 0.45); }
 }
 .animate-pulse-win {
   animation: pulse-win 0.8s ease-in-out 3;
 }
 
-/* ── SPARK badge shimmer ── */
+/* SPARK badge shimmer */
 @keyframes shimmer {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(300%); }
 }
 
-/* ── Soft bounce for win banner ── */
+/* Soft bounce for win banner */
 @keyframes bounce-subtle {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-4px); }
@@ -150,48 +155,48 @@
   }
 }
 
-/* ── Apple iPhone iOS Glass Material System ── */
+/* Apple iPhone iOS Glass Material System - Theme Updated */
 .ios-glass-bar {
-  background: rgba(255, 255, 255, 0.58);
-  backdrop-filter: blur(28px) saturate(190%) contrast(95%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(95%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(12, 15, 25, 0.78);
+  backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.05),
-    0 1px 3px 0 rgba(0, 0, 0, 0.02),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 0.5px 0 rgba(0, 0, 0, 0.02);
+    0 10px 30px -5px rgba(0, 0, 0, 0.5),
+    0 1px 3px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0.5px 0 rgba(0, 0, 0, 0.3);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ios-glass-bar-scrolled {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(32px) saturate(200%) contrast(95%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%) contrast(95%);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(9, 12, 20, 0.88);
+  backdrop-filter: blur(32px) saturate(200%) contrast(110%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%) contrast(110%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 
-    0 16px 36px -8px rgba(0, 0, 0, 0.09),
-    0 2px 6px 0 rgba(0, 0, 0, 0.03),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0.5px 0 rgba(0, 0, 0, 0.02);
+    0 16px 36px -8px rgba(0, 0, 0, 0.65),
+    0 2px 6px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0.5px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* iOS Segmented Control Dock */
 .ios-segmented-dock {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .ios-segmented-active {
-  background: rgba(255, 255, 255, 0.95);
-  color: #0F172A;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.9) 0%, rgba(217, 119, 6, 0.85) 100%);
+  color: #FFFFFF;
   box-shadow: 
-    0 3px 10px rgba(0, 0, 0, 0.09),
-    0 1px 2px rgba(0, 0, 0, 0.05),
-    inset 0 0.5px 0.5px rgba(255, 255, 255, 1);
+    0 3px 12px rgba(220, 38, 38, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    inset 0 0.5px 0.5px rgba(255, 255, 255, 0.3);
 }
 
 /* iOS Primary Action Button */
@@ -199,17 +204,17 @@
   background: linear-gradient(180deg, #0A66FF 0%, #004BE0 100%);
   color: #FFFFFF;
   box-shadow: 
-    0 4px 14px -1px rgba(0, 82, 255, 0.38),
-    inset 0 1px 0.5px rgba(255, 255, 255, 0.4),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+    0 4px 14px -1px rgba(0, 82, 255, 0.45),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ios-button-primary:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.1);
   box-shadow: 
-    0 6px 18px -1px rgba(0, 82, 255, 0.48),
-    inset 0 1px 0.5px rgba(255, 255, 255, 0.5);
+    0 6px 20px -1px rgba(0, 82, 255, 0.6),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
 }
 
@@ -219,19 +224,18 @@
 }
 
 .ios-icon-button {
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ios-icon-button:hover {
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .ios-icon-button:active {
   transform: scale(0.94);
 }
-

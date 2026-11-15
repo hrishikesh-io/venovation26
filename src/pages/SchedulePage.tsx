@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, MapPin, Layers, ArrowRight, Trophy } from 'lucide-react';
+import { Calendar, Clock, MapPin, Layers, ArrowRight, Trophy, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 interface ScheduleEvent {
@@ -221,33 +221,33 @@ export const SchedulePage: React.FC = () => {
   });
 
   return (
-    <div className="pt-28 pb-24 bg-[#F8FAFC]">
+    <div className="pt-32 pb-24 bg-[#08090E] min-h-screen text-white bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-600 text-xs font-mono font-medium">
-            <Calendar className="h-3.5 w-3.5" />
-            <span>TIMELINE & AGENDA &bull; MARCH 24-25, 2026</span>
+        {/* Header - Single Line Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-12 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/15 border border-red-500/25 text-red-400 text-xs font-mono font-medium">
+            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+            <span>TIMELINE &amp; AGENDA • MARCH 24-25, 2026</span>
           </div>
-          <h1 className="font-display text-4xl sm:text-6xl font-black tracking-tight text-slate-950">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white whitespace-nowrap">
             Event Schedule
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg">
+          <p className="text-slate-300 text-base sm:text-lg">
             Track all technical sessions, hackathon milestone checkpoints, lab relays, and award ceremonies.
           </p>
         </div>
 
         {/* Filter Controls */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-12 space-y-4">
+        <div className="bg-[#0F1322] p-6 rounded-2xl border border-slate-800 shadow-xl mb-12 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             {/* Day Selector */}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono text-slate-500 uppercase font-semibold">Day:</span>
-              <div className="flex items-center bg-slate-100 p-1 rounded-xl">
+              <span className="text-xs font-mono text-amber-400 uppercase font-semibold">Day:</span>
+              <div className="flex items-center bg-[#14192D] p-1 rounded-xl border border-slate-800">
                 <button
                   onClick={() => setSelectedDay('all')}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
-                    selectedDay === 'all' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                    selectedDay === 'all' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Both Days
@@ -255,7 +255,7 @@ export const SchedulePage: React.FC = () => {
                 <button
                   onClick={() => setSelectedDay('Day 1')}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
-                    selectedDay === 'Day 1' ? 'bg-brand-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                    selectedDay === 'Day 1' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Day 1 (March 24)
@@ -263,7 +263,7 @@ export const SchedulePage: React.FC = () => {
                 <button
                   onClick={() => setSelectedDay('Day 2')}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
-                    selectedDay === 'Day 2' ? 'bg-brand-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                    selectedDay === 'Day 2' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Day 2 (March 25)
@@ -273,12 +273,12 @@ export const SchedulePage: React.FC = () => {
 
             {/* Department Selector */}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono text-slate-500 uppercase font-semibold">Stream:</span>
+              <span className="text-xs font-mono text-amber-400 uppercase font-semibold">Stream:</span>
               <select
                 value={selectedDept}
                 onChange={(e) => setSelectedDept(e.target.value)}
                 aria-label="Filter schedule by Department"
-                className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-medium text-slate-800 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                className="px-3 py-1.5 rounded-xl border border-slate-700 text-xs font-medium text-slate-200 bg-[#14192D] focus:outline-none focus:ring-2 focus:ring-blue-500/20 cursor-pointer"
               >
                 <option value="all">All Departments</option>
                 <option value="cse">Computer Science (CSE)</option>
@@ -290,56 +290,59 @@ export const SchedulePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Timeline Events List */}
+        {/* Timeline Events List - With Unified Electric Blue Hover */}
         <div className="space-y-4">
           {filteredSchedule.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-brand-400 hover:shadow-lg transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+              className="group relative overflow-hidden p-6 rounded-2xl bg-[#0F1322] border border-slate-800 transition-all duration-500 ease-out hover:-translate-y-2.5 hover:scale-[1.01] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 cursor-pointer grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
             >
+              {/* Unified Electric Blue Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+
               {/* Left Time Badge */}
-              <div className="lg:col-span-3 space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-brand-50 text-brand-700 text-xs font-mono font-bold">
+              <div className="relative z-10 lg:col-span-3 space-y-1.5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/15 border border-amber-500/25 text-amber-400 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 text-xs font-mono font-bold transition-colors">
                   <Clock className="h-3.5 w-3.5" />
                   <span>{item.time}</span>
                 </div>
-                <div className="text-xs font-mono font-medium text-slate-500">
+                <div className="text-xs font-mono font-medium text-slate-400 group-hover:text-white/80 transition-colors">
                   {item.day === 'Day 1' ? 'Tuesday, March 24' : 'Wednesday, March 25'}
                 </div>
               </div>
 
               {/* Center Info */}
-              <div className="lg:col-span-6 space-y-2">
+              <div className="relative z-10 lg:col-span-6 space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold">
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-700 text-slate-300 group-hover:text-white text-[11px] font-semibold transition-colors">
                     {item.department}
                   </span>
-                  <span className="px-2 py-0.5 rounded-full bg-brand-50 text-brand-600 text-[11px] font-mono">
+                  <span className="px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/25 text-blue-400 group-hover:text-white text-[11px] font-mono transition-colors">
                     {item.category}
                   </span>
                 </div>
 
-                <h3 className="font-display text-lg sm:text-xl font-bold text-slate-950">
+                <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 group-hover:text-white/90 leading-relaxed transition-colors">
                   {item.description}
                 </p>
 
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium pt-1">
-                  <MapPin className="h-3.5 w-3.5 text-brand-500" />
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 group-hover:text-white/80 font-medium pt-1 transition-colors">
+                  <MapPin className="h-3.5 w-3.5 text-red-400 group-hover:text-white" />
                   <span>{item.venue}</span>
                 </div>
               </div>
 
               {/* Right Action & Prize */}
-              <div className="lg:col-span-3 lg:text-right flex flex-row lg:flex-col justify-between items-end gap-3 self-center">
+              <div className="relative z-10 lg:col-span-3 lg:text-right flex flex-row lg:flex-col justify-between items-end gap-3 self-center">
                 {item.prize ? (
                   <div className="text-left lg:text-right">
-                    <span className="text-[10px] font-mono text-slate-400 uppercase">Prize Value</span>
-                    <div className="flex items-center gap-1 text-xs font-bold text-amber-600 mt-0.5">
-                      <Trophy className="h-3.5 w-3.5 text-amber-500" />
+                    <span className="text-[10px] font-mono text-slate-400 group-hover:text-white/80 uppercase">Prize Value</span>
+                    <div className="flex items-center gap-1 text-xs font-bold text-amber-400 group-hover:text-white mt-0.5">
+                      <Trophy className="h-3.5 w-3.5 text-amber-400 group-hover:text-white" />
                       <span>{item.prize}</span>
                     </div>
                   </div>
@@ -349,13 +352,22 @@ export const SchedulePage: React.FC = () => {
 
                 {item.deptId !== 'all' ? (
                   <Link to={`/register?dept=${item.deptId}`}>
-                    <Button variant="primary" size="sm" className="font-semibold text-xs">
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      className="font-semibold text-xs bg-gradient-to-r from-red-600 to-amber-500 hover:brightness-110 text-white"
+                    >
                       Register Now
                     </Button>
                   </Link>
                 ) : (
-                  <span className="text-xs font-mono text-slate-400">Open to All Attendees</span>
+                  <span className="text-xs font-mono text-slate-400 group-hover:text-white/80">Open to All Attendees</span>
                 )}
+              </div>
+
+              {/* Corner accent */}
+              <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40 group-hover:opacity-90 transition-opacity duration-300">
+                <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-amber-500 group-hover:border-white transition-colors duration-300"></div>
               </div>
             </div>
           ))}

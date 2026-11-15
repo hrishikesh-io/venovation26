@@ -1,42 +1,45 @@
 import React from 'react';
-import { MapPin, Navigation, Train, Bus, Plane, Phone, Mail, ExternalLink, ShieldCheck, Clock } from 'lucide-react';
+import { MapPin, Navigation, Train, Bus, Plane, Phone, Mail, ExternalLink, ShieldCheck, Clock, GraduationCap } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const HowToReachPage: React.FC = () => {
+  const mapsUrl =
+    'https://www.google.com/maps/search/?api=1&query=Vennikulam+Poly+CM37%2B4JG+Eraviperoor+Vennikulam+Rd+Vennikulam+Kerala+689544';
+
   const transitOptions = [
     {
-      icon: <Train className="h-6 w-6 text-brand-500" />,
-      title: 'By Train / Metro',
-      primary: 'City Central Railway Junction (SBC / YPR)',
-      details: 'Distance: 8.2 km (~20-25 mins via Metro or Uber/Ola). Take Purple/Green Metro Line directly to the College Tech Station.',
+      icon: <Train className="h-6 w-6 text-amber-400 group-hover:text-white" />,
+      title: 'By Train / Railway',
+      primary: 'Thiruvalla (TRVL) & Chengannur (CNGR) Stations',
+      details: 'Distance: ~14 km from Thiruvalla / Chengannur Railway Stations. Frequent KSRTC buses and taxi/auto services are available directly to Vennikulam Junction.',
     },
     {
-      icon: <Bus className="h-6 w-6 text-brand-500" />,
-      title: 'By Bus',
-      primary: 'Express Bus Terminus / Campus Highway Stop',
-      details: 'Frequent city buses (Routes 365, 500D, 201R) drop directly in front of Main Campus Gate 1 & Gate 2.',
+      icon: <Bus className="h-6 w-6 text-amber-400 group-hover:text-white" />,
+      title: 'By KSRTC / Private Bus',
+      primary: 'Vennikulam Bus Junction & Eraviperoor Stop',
+      details: 'KSRTC and private buses operating along the Kozhencherry - Thiruvalla and Pathanamthitta routes stop directly near the college campus entrance.',
     },
     {
-      icon: <Plane className="h-6 w-6 text-brand-500" />,
+      icon: <Plane className="h-6 w-6 text-amber-400 group-hover:text-white" />,
       title: 'By Air',
-      primary: 'Kempegowda International Airport (BLR)',
-      details: 'Distance: 32 km. Vayu Vajra Airport Shuttle Bus (KIAS-8) connects directly to the outer ring road junction near campus.',
+      primary: 'Cochin International Airport (COK) / TRV',
+      details: 'Distance: ~115 km from Cochin Airport (COK) or ~125 km from Trivandrum Airport (TRV). Direct train and road connections lead to Pathanamthitta district.',
     },
   ];
 
   return (
-    <div className="pt-28 pb-24 bg-[#F8FAFC]">
+    <div className="pt-32 pb-24 bg-[#08090E] min-h-screen text-white bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-600 text-xs font-mono font-medium">
-            <Navigation className="h-3.5 w-3.5" />
-            <span>CAMPUS LOCATION & TRANSIT</span>
+        {/* Header - Single Line Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/15 border border-red-500/25 text-red-400 text-xs font-mono font-medium">
+            <Navigation className="h-3.5 w-3.5 text-amber-400" />
+            <span>CAMPUS LOCATION &amp; TRANSIT</span>
           </div>
-          <h1 className="font-display text-4xl sm:text-6xl font-black tracking-tight text-slate-950">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white whitespace-nowrap">
             How to Reach Us
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg">
+          <p className="text-slate-300 text-base sm:text-lg">
             Complete transit instructions and venue directions to ensure seamless arrival for all participating college contingents.
           </p>
         </div>
@@ -44,43 +47,44 @@ export const HowToReachPage: React.FC = () => {
         {/* Top Grid: Campus Card + Map Embed */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
           {/* Left Campus Details */}
-          <div className="lg:col-span-5 rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-10 shadow-sm flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="h-12 w-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+          <div className="lg:col-span-5 rounded-3xl bg-[#0F1322] border border-slate-800 p-8 sm:p-10 shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 space-y-4">
+              <div className="h-12 w-12 rounded-2xl bg-amber-500/15 text-amber-400 border border-amber-500/25 flex items-center justify-center">
                 <MapPin className="h-6 w-6" />
               </div>
 
               <div>
-                <span className="text-xs font-mono text-brand-600 uppercase font-semibold">
-                  Official Venue
+                <span className="text-xs font-mono text-amber-400 uppercase font-semibold">
+                  Official Fest Venue
                 </span>
-                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 mt-1">
-                  Technology Campus
+                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                  GPTC Vennikulam Campus
                 </h2>
               </div>
 
-              <div className="space-y-2 text-sm text-slate-600">
-                <p className="font-semibold text-slate-900">Department of Engineering & Research</p>
-                <p>Auditorium Block & Innovation Quadrangle</p>
-                <p>Technology Highway, Electronic Corridor</p>
-                <p className="font-mono text-slate-700">Bengaluru, Karnataka - 560064, India</p>
+              <div className="space-y-2 text-sm text-slate-300">
+                <p className="font-semibold text-white">Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College</p>
+                <p>Eraviperoor - Vennikulam Road, CM37+4JG</p>
+                <p className="font-mono text-slate-400">Vennikulam, Pathanamthitta, Kerala – 689 544</p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-600">
+              <div className="pt-2 border-t border-slate-800 space-y-2.5 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-brand-500" />
-                  <span>Gates Open: 07:30 AM (Both Days)</span>
+                  <Clock className="h-4 w-4 text-blue-400" />
+                  <span>Registration Gates Open: 08:00 AM (March 24 &amp; 25)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                  <span>Free Designated Parking for Registered Vehicles</span>
+                  <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                  <span>Free Designated Parking for Registered Vehicles &amp; Contingents</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 flex flex-col gap-3">
+            <div className="relative z-10 pt-4 flex flex-col gap-3">
               <a
-                href="https://maps.google.com/?q=Bengaluru+Tech+Campus"
+                href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full"
@@ -88,28 +92,28 @@ export const HowToReachPage: React.FC = () => {
                 <Button
                   variant="primary"
                   size="md"
-                  className="w-full font-bold"
+                  className="w-full font-bold bg-gradient-to-r from-red-600 via-amber-500 to-blue-600 hover:brightness-110 text-white"
                   rightIcon={<ExternalLink className="h-4 w-4 ml-1" />}
                 >
-                  Open in Google Maps →
+                  Open in Google Maps
                 </Button>
               </a>
 
               <a
                 href="tel:+919876543212"
-                className="inline-flex items-center justify-center gap-2 py-2 text-xs font-mono text-slate-600 hover:text-brand-600 transition"
+                className="inline-flex items-center justify-center gap-2 py-2 text-xs font-mono text-slate-400 hover:text-white transition"
               >
-                <Phone className="h-3.5 w-3.5" />
+                <Phone className="h-3.5 w-3.5 text-amber-400" />
                 <span>Transit Helpdesk: +91 98765 43212</span>
               </a>
             </div>
           </div>
 
-          {/* Right Live Map Embed / Stylized Map View */}
-          <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-slate-200 shadow-sm relative min-h-[380px] bg-slate-900">
+          {/* Right Live Map Embed */}
+          <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-slate-800 shadow-xl relative min-h-[380px] bg-slate-900">
             <iframe
               title="Campus Map Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.88653909205!2d77.49085449774697!3d12.953959988188177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1708000000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=Vennikulam+Polytechnic+College+Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '380px' }}
@@ -120,37 +124,49 @@ export const HowToReachPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Transit Cards Breakdown */}
+        {/* Transit Cards Breakdown - With Unified Electric Blue Hover */}
         <div className="mb-16">
-          <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-950 mb-8 text-center">
-            Transit & Transportation Routes
+          <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-8 text-center whitespace-nowrap">
+            Transit &amp; Transportation Routes
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {transitOptions.map((t, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm hover:border-brand-500 hover:shadow-lg transition space-y-4"
+                className="group relative overflow-hidden rounded-3xl bg-[#0F1322] border border-slate-800 p-6 sm:p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2.5 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 cursor-pointer space-y-4"
               >
-                <div className="h-12 w-12 rounded-2xl bg-slate-50 flex items-center justify-center">
-                  {t.icon}
+                {/* Unified Electric Blue Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+
+                <div className="relative z-10 space-y-3">
+                  <div className="h-12 w-12 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:border-white/30 group-hover:rotate-6 group-hover:scale-110">
+                    {t.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-lg text-white group-hover:text-white transition-colors">{t.title}</h4>
+                    <p className="text-xs font-semibold text-amber-400 group-hover:text-white/90 mt-1 transition-colors">{t.primary}</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-300 group-hover:text-white/85 leading-relaxed transition-colors">
+                    {t.details}
+                  </p>
                 </div>
-                <div>
-                  <h4 className="font-display font-bold text-lg text-slate-950">{t.title}</h4>
-                  <p className="text-xs font-semibold text-brand-600 mt-1">{t.primary}</p>
+
+                {/* Corner accent */}
+                <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40 group-hover:opacity-90 transition-opacity duration-300">
+                  <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-amber-500 group-hover:border-white transition-colors duration-300"></div>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {t.details}
-                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Accommodation & Support Box */}
-        <div className="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 shadow-xl border border-slate-800">
-          <div className="max-w-3xl space-y-4">
-            <span className="font-mono text-xs text-brand-400 uppercase tracking-wider">
+        <div className="rounded-3xl bg-[#0F1322] text-white p-8 sm:p-12 shadow-xl border border-slate-800 relative overflow-hidden">
+          <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-3xl space-y-4 relative z-10">
+            <span className="font-mono text-xs text-amber-400 uppercase tracking-wider block">
               OUTSTATION STUDENT ACCOMMODATION
             </span>
             <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
@@ -162,7 +178,7 @@ export const HowToReachPage: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="mailto:hospitality@venovation26.edu"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 via-amber-500 to-blue-600 hover:brightness-110 text-white text-sm font-semibold transition shadow-md"
               >
                 <Mail className="h-4 w-4" />
                 <span>Contact Hospitality Team</span>
@@ -171,7 +187,7 @@ export const HowToReachPage: React.FC = () => {
                 href="tel:+919876543213"
                 className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white font-mono"
               >
-                <Phone className="h-4 w-4 text-brand-400" />
+                <Phone className="h-4 w-4 text-amber-400" />
                 <span>+91 98765 43213</span>
               </a>
             </div>

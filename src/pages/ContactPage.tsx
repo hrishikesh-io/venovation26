@@ -1,22 +1,7 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare, Instagram, Linkedin, Twitter, CheckCircle2, UserCheck } from 'lucide-react';
-import { Button } from '../components/ui/Button';
+import React from 'react';
+import { Mail, Phone, MapPin, MessageSquare, Instagram, Linkedin, Twitter, Github, UserCheck, ShieldCheck, Clock, ExternalLink } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: 'General Inquiry',
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   const coordinators = [
     {
       role: 'Staff Convenor & Faculty Lead',
@@ -49,237 +34,242 @@ export const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 pb-24 bg-[#F8FAFC]">
+    <div className="pt-32 pb-24 bg-[#08090E] min-h-screen text-white bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-600 text-xs font-mono font-medium">
-            <MessageSquare className="h-3.5 w-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono font-medium">
+            <MessageSquare className="h-3.5 w-3.5 text-amber-400" />
             <span>CONNECT WITH VENOVATION COMMITTEE</span>
           </div>
-          <h1 className="font-display text-4xl sm:text-6xl font-black tracking-tight text-slate-950">
-            Contact Us
+
+          {/* Heading on ONE single line */}
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white whitespace-nowrap">
+            Contact Official Committee
           </h1>
-          <p className="text-slate-600 text-base sm:text-lg">
-            Have questions regarding events, team eligibility, sponsorships, or hostel accommodations? We are here to help.
+
+          <p className="text-slate-300 text-base sm:text-lg">
+            Reach out directly to faculty convenors, student leaders, and technical event coordinators for questions regarding participation, schedules, and hospitality.
           </p>
         </div>
 
-        {/* 4 Coordinators Cards Grid */}
+        {/* 4 Coordinators Cards Grid - With the EXACT Unified Electric Blue hover animation */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {coordinators.map((c, idx) => (
             <div
               key={idx}
-              className="rounded-3xl bg-white border border-slate-200/90 p-6 shadow-sm hover:border-brand-400 hover:shadow-lg transition space-y-3"
+              className="group relative overflow-hidden rounded-3xl bg-[#0F1322] border border-slate-800 p-6 transition-all duration-500 ease-out hover:-translate-y-2.5 hover:scale-[1.02] hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/35 cursor-pointer flex flex-col justify-between space-y-4"
             >
-              <div className="h-10 w-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
-                <UserCheck className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-mono font-semibold text-brand-600 uppercase">
-                  {c.role}
-                </span>
-                <h3 className="font-display text-lg font-bold text-slate-950 mt-0.5">
-                  {c.name}
-                </h3>
-                <p className="text-xs text-slate-500">{c.dept}</p>
+              {/* Unified Electric Blue Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 pointer-events-none" />
+
+              {/* Subtle tech grid on hover */}
+              <div className="absolute inset-0 bg-tech-grid opacity-0 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="relative z-10 space-y-3">
+                <div className="h-11 w-11 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center transition-all duration-500 ease-out group-hover:bg-white/20 group-hover:text-white group-hover:border-white/30 group-hover:rotate-6 group-hover:scale-110">
+                  <UserCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-mono font-semibold text-amber-400 group-hover:text-white/90 uppercase tracking-wider block transition-colors duration-300">
+                    {c.role}
+                  </span>
+                  <h3 className="font-display text-lg font-bold text-white mt-1 group-hover:text-white transition-colors duration-300">
+                    {c.name}
+                  </h3>
+                  <p className="text-xs text-slate-400 group-hover:text-white/80 transition-colors duration-300 mt-0.5">{c.dept}</p>
+                </div>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs font-mono text-slate-600">
+              <div className="relative z-10 pt-3 border-t border-slate-800/80 group-hover:border-white/20 space-y-2 text-xs font-mono text-slate-300 transition-colors duration-300">
                 <a
                   href={`tel:${c.phone}`}
-                  className="flex items-center gap-2 text-slate-700 hover:text-brand-600 transition"
+                  className="flex items-center gap-2 text-slate-300 hover:text-white transition group-hover:text-white"
                 >
-                  <Phone className="h-3.5 w-3.5 text-brand-500 shrink-0" />
+                  <Phone className="h-3.5 w-3.5 text-blue-400 group-hover:text-white shrink-0" />
                   <span className="truncate">{c.phone}</span>
                 </a>
                 <a
                   href={`mailto:${c.email}`}
-                  className="flex items-center gap-2 text-slate-700 hover:text-brand-600 transition"
+                  className="flex items-center gap-2 text-slate-300 hover:text-white transition group-hover:text-white"
                 >
-                  <Mail className="h-3.5 w-3.5 text-brand-500 shrink-0" />
+                  <Mail className="h-3.5 w-3.5 text-blue-400 group-hover:text-white shrink-0" />
                   <span className="truncate">{c.email}</span>
                 </a>
+              </div>
+
+              {/* Corner accent */}
+              <div className="absolute bottom-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-40 group-hover:opacity-90 transition-opacity duration-300">
+                <div className="absolute bottom-[-10px] right-[-10px] h-6 w-6 border-b-2 border-r-2 border-amber-500 group-hover:border-white transition-colors duration-300"></div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Split Section: Query Form & Campus Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Query Form */}
-          <div className="lg:col-span-7 rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-10 shadow-sm">
-            <h3 className="font-display text-2xl font-extrabold text-slate-950 mb-2">
-              Send an Inquiry
-            </h3>
-            <p className="text-slate-600 text-sm mb-6">
-              Fill out the form below and our student coordination team will reply within 4 hours.
-            </p>
+        {/* Central Secretariat & Venue Headquarters Full Card (No Enquiry Form) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Main Headquarters Panel */}
+          <div className="lg:col-span-7 rounded-3xl bg-[#0F1322] border border-slate-800 p-8 sm:p-10 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            {submitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
-                <CheckCircle2 className="h-12 w-12 text-emerald-600 mx-auto" />
-                <h4 className="font-display text-xl font-bold text-emerald-950">Inquiry Sent Successfully!</h4>
-                <p className="text-sm text-emerald-700">
-                  Thank you for reaching out. We have logged your request and a coordinator will contact you shortly.
+            <div className="relative z-10 space-y-6">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-medium">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  <span>OFFICIAL CENTRAL SECRETARIAT</span>
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                  Fest Control Room & Operations Desk
+                </h2>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  The Central Fest Secretariat is situated on the Ground Floor of the Main Academic Block, functioning round-the-clock during festival days for on-spot registrations, certificates, transit coordination, and lab allocations.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs font-semibold text-emerald-800 underline mt-2"
-                >
-                  Send another inquiry
-                </button>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Rahul Sharma"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-sm"
-                    />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-[#14192D] border border-slate-800 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-semibold uppercase">
+                    <Clock className="h-4 w-4" />
+                    <span>Control Desk Hours</span>
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="e.g. rahul@college.edu"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-sm"
-                    />
-                  </div>
+                  <p className="text-sm font-bold text-white">08:00 AM – 08:00 PM</p>
+                  <p className="text-xs text-slate-400">March 24 & 25, 2026</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="10-digit mobile number"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-sm"
-                    />
+                <div className="p-4 rounded-2xl bg-[#14192D] border border-slate-800 space-y-1.5">
+                  <div className="flex items-center gap-2 text-xs font-mono text-blue-400 font-semibold uppercase">
+                    <Phone className="h-4 w-4" />
+                    <span>Helpline Lines</span>
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                      Inquiry Category
-                    </label>
-                    <select
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-sm bg-white"
-                    >
-                      <option value="General Inquiry">General Fest Inquiry</option>
-                      <option value="Event Rules & Clarifications">Event Rules & Clarifications</option>
-                      <option value="Accommodation Request">Accommodation / Hostel Request</option>
-                      <option value="Sponsorship & Stalls">Sponsorship & Brand Stalls</option>
-                    </select>
-                  </div>
+                  <p className="text-sm font-bold text-white">+91 98765 43210</p>
+                  <p className="text-xs text-slate-400">+91 98765 43211 / 12</p>
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">
-                    Your Message *
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Type your questions or special requirements here..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 text-sm"
-                  />
+              <div className="pt-2 text-sm text-slate-300 space-y-3">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                  <span>Mahakavi Vennikulam Gopalakurup Memorial Govt. Polytechnic College, Vennikulam, Pathanamthitta, Kerala – 689544</span>
                 </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-amber-400 shrink-0" />
+                  <a href="mailto:info@venovation26.edu" className="hover:text-amber-400 transition font-mono">
+                    info@venovation26.edu / secretariat@venovation26.edu
+                  </a>
+                </div>
+              </div>
+            </div>
 
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  className="w-full font-bold"
-                  rightIcon={<Send className="h-4 w-4 ml-1" />}
-                >
-                  Submit Message
-                </Button>
-              </form>
-            )}
+            <div className="relative z-10 pt-6 mt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vennikulam+Poly+CM37%2B4JG+Eraviperoor+Vennikulam+Rd+Vennikulam+Kerala+689544"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-amber-400 hover:text-amber-300 transition"
+              >
+                <span>Open in Google Maps</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+
+              <span className="text-xs font-mono text-slate-400">
+                GPS: 9.3854° N, 76.6710° E
+              </span>
+            </div>
           </div>
 
-          {/* Direct Helpdesk Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl bg-slate-950 text-white p-8 shadow-xl border border-slate-800 space-y-6">
-              <div>
-                <span className="font-mono text-xs text-brand-400 uppercase tracking-wider">
-                  OFFICIAL VENUE DESK
-                </span>
-                <h3 className="font-display text-2xl font-bold text-white mt-1">
-                  Central Secretariat
-                </h3>
+          {/* Social Broadcasts & Emergency Quick Desk */}
+          <div className="lg:col-span-5 rounded-3xl bg-[#0F1322] border border-slate-800 p-8 sm:p-10 shadow-xl relative overflow-hidden flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-medium">
+                <MessageSquare className="h-3.5 w-3.5" />
+                <span>COMMUNICATION CHANNELS</span>
               </div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
+                Live Broadcast Channels
+              </h3>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Stay informed with minute-by-minute announcements, event delays, round qualifications, and trophy ceremonies via our official media networks.
+              </p>
+            </div>
 
-              <div className="space-y-3 text-sm text-slate-300">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-brand-400 shrink-0 mt-0.5" />
-                  <span>Student Activities Center, Main Campus Block, Bengaluru - 560064</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-brand-400 shrink-0" />
-                  <a href="mailto:info@venovation26.edu" className="hover:text-white transition">
-                    info@venovation26.edu
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-brand-400 shrink-0" />
-                  <a href="tel:+919876543210" className="hover:text-white transition font-mono">
-                    +91 98765 43210 / 11
-                  </a>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-800">
-                <span className="text-xs font-mono text-slate-400 uppercase block mb-3">
-                  Follow Fest Broadcasts
-                </span>
-                <div className="flex items-center gap-3">
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-brand-500 transition"
-                  >
+            {/* Social Grid with unified hover */}
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden p-4 rounded-2xl bg-[#14192D] border border-slate-800 hover:border-transparent transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 group-hover:text-white flex items-center justify-center">
                     <Instagram className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-brand-500 transition"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-brand-500 transition"
-                  >
-                    <Twitter className="h-4 w-4" />
-                  </a>
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-white block">Instagram</span>
+                    <span className="text-[10px] text-slate-400 group-hover:text-white/80 font-mono">@venovation26</span>
+                  </div>
                 </div>
-              </div>
+              </a>
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden p-4 rounded-2xl bg-[#14192D] border border-slate-800 hover:border-transparent transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 group-hover:text-white flex items-center justify-center">
+                    <Linkedin className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-white block">LinkedIn</span>
+                    <span className="text-[10px] text-slate-400 group-hover:text-white/80 font-mono">/venovation26</span>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden p-4 rounded-2xl bg-[#14192D] border border-slate-800 hover:border-transparent transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 group-hover:text-white flex items-center justify-center">
+                    <Twitter className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-white block">Twitter / X</span>
+                    <span className="text-[10px] text-slate-400 group-hover:text-white/80 font-mono">@venovation_fest</span>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden p-4 rounded-2xl bg-[#14192D] border border-slate-800 hover:border-transparent transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0052FF] via-[#0047E0] to-[#002FA7] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 group-hover:text-white flex items-center justify-center">
+                    <Github className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-white block">GitHub</span>
+                    <span className="text-[10px] text-slate-400 group-hover:text-white/80 font-mono">/venovation26</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 leading-relaxed">
+              <span className="font-bold text-amber-200">Note:</span> Outstation participants needing hostel accommodation or bus pick-up assistance should call the Hospitality Lead at least 24 hours prior to arrival.
             </div>
           </div>
         </div>

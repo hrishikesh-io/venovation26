@@ -31,7 +31,7 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 bg-white border-y border-slate-200/80 relative">
+    <section className="py-14 bg-[#0A0D16] border-y border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, idx) => (

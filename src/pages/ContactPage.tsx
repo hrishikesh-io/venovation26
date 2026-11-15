@@ -41,19 +41,19 @@ export const ContactPage: React.FC = () => {
     <div className="pt-32 pb-24 bg-[#08090E] min-h-screen text-white bg-tech-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* ============================================================== */}
-        {/* 1. Page Header - Centered & Perfectly Aligned                  */}
+        {/* 1. Page Header - Centered & Perfectly Aligned on All Screens   */}
         {/* ============================================================== */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/15 border border-red-500/25 text-red-400 text-xs font-mono font-medium">
+        <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center justify-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/15 border border-red-500/25 text-red-400 text-xs font-mono font-medium shadow-sm">
             <MessageSquare className="h-3.5 w-3.5 text-amber-400" />
             <span>CONNECT WITH VENOVATION COMMITTEE</span>
           </div>
 
-          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white whitespace-nowrap">
+          <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white text-center w-full leading-tight">
             Contact Official Committee
           </h1>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Reach out directly to faculty convenors, student leaders, and event coordinators for queries on participation, schedules, and hospitality.
           </p>
         </div>
@@ -100,7 +100,7 @@ export const ContactPage: React.FC = () => {
                     <span className="text-[11px] font-mono text-amber-400 group-hover:text-white/80 uppercase tracking-wider block transition-colors">
                       {c.subtitle}
                     </span>
-                    <h3 className="font-display text-lg font-bold text-white group-hover:text-white transition-colors duration-300 mt-0.5">
+                    <h3 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-white transition-colors duration-300 mt-0.5">
                       {c.name}
                     </h3>
                     <p className="text-xs text-slate-400 group-hover:text-white/80 transition-colors duration-300 mt-0.5">
@@ -153,7 +153,7 @@ export const ContactPage: React.FC = () => {
                   <span>OFFICIAL CENTRAL SECRETARIAT</span>
                 </div>
 
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white whitespace-nowrap">
+                <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                   Fest Control Room &amp; Operations Desk
                 </h2>
 
@@ -230,7 +230,7 @@ export const ContactPage: React.FC = () => {
                 <span>COMMUNICATION CHANNELS</span>
               </div>
 
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white whitespace-nowrap">
+              <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                 Live Broadcast Channels
               </h2>
 
